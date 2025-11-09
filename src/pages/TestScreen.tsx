@@ -41,7 +41,7 @@ export default function TestScreen() {
         }
 
         // Перемешиваем ответы и сохраняем правильный вариант
-        const randomized: ShuffledQuestion[] = data.map((q) => {
+        const randomized: ShuffledQuestion[] = data.map((q: Question) => {
           const shuffled = shuffle(q.answers);
           return {
             ...q,

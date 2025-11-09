@@ -7,4 +7,5 @@ export default defineConfig({
   server: {
     hmr: true,
   },
+  base: "/test-gask/",
 });
