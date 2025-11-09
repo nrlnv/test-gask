@@ -1,17 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import TestScreen from "./pages/TestScreen";
 import Home from "./pages/Home";
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/test/:slug" element={<TestScreen />} />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
