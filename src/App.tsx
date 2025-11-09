@@ -1,16 +1,32 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
 import TestScreen from "./pages/TestScreen";
 import Home from "./pages/Home";
+import AccessScreen from "./pages/AccessScreen";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <HashRouter>
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/test/:slug" element={<TestScreen />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<AccessScreen />} />
+        <Route
+          path="/tests"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/test/:slug"
+          element={
+            <ProtectedRoute>
+              <TestScreen />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<AccessScreen />} />
+      </Routes>
     </HashRouter>
   );
 }
